@@ -1,0 +1,83 @@
+
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: baseball-card-mongodb
+    restart: unless-stopped
+    command: ["mongod", "--quiet"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - baseball-card-network
+    # Port only exposed internally to Docker network
+    expose:
+      - "27017"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "none"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: baseball-card-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 5000
+      MONGO_URI: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb:27017/${MONGO_DATABASE}?authSource=admin
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      SESSION_SECRET: ${SESSION_SECRET}
+      FRONTEND_URL: ${FRONTEND_URL}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    volumes:
+      - uploads:/app/uploads
+    networks:
+      - baseball-card-network
+    # Port only exposed internally to Docker network (nginx will proxy)
+    expose:
+      - "5000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5000/api/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nginx:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
+        REACT_APP_GOOGLE_CLIENT_ID: ${REACT_APP_GOOGLE_CLIENT_ID}
+    container_name: baseball-card-nginx
+    restart: unless-stopped
+    ports:
+      - "58080:80"  # Obscure external port to avoid conflicts
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+    networks:
+      - baseball-card-network
+
+volumes:
+  mongodb_data:
+  uploads:
+
+networks:
+  baseball-card-network:
+    driver: bridge
