@@ -22,7 +22,25 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
       const textureLayers = template.layers.filter(layer => layer.type === 'texture');
 
       textureLayers.forEach(layer => {
-        if (layer.texture) {
+        // Handle file-based textures
+        if (layer.textureFile) {
+          const img = new Image();
+          img.onload = () => {
+            setTextureImages(prev => {
+              if (prev[layer.textureFile]) return prev;
+              return {
+                ...prev,
+                [layer.textureFile]: img
+              };
+            });
+          };
+          img.onerror = (err) => {
+            console.error(`Failed to load texture file: ${layer.textureFile}`, err);
+          };
+          img.src = layer.textureFile;
+        }
+        // Handle generated textures
+        else if (layer.texture) {
           getTexture(layer.texture, 512, 512).then(img => {
             setTextureImages(prev => {
               // Only update if texture isn't already loaded
@@ -165,8 +183,9 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
         {template.layers.map((layer, index) => {
           switch (layer.type) {
             case 'texture':
-              // Render texture background
-              if (textureImages[layer.texture]) {
+              // Render texture background (either generated or from file)
+              const textureKey = layer.textureFile || layer.texture;
+              if (textureImages[textureKey]) {
                 return (
                   <Rect
                     key={`texture-${index}`}
@@ -174,7 +193,7 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
                     y={layer.y || 0}
                     width={layer.width || CARD_WIDTH}
                     height={layer.height || CARD_HEIGHT}
-                    fillPatternImage={textureImages[layer.texture]}
+                    fillPatternImage={textureImages[textureKey]}
                     fillPatternRepeat="repeat"
                     fillPatternScale={{ x: (layer.width || CARD_WIDTH) / 512, y: (layer.height || CARD_HEIGHT) / 512 }}
                     cornerRadius={10}

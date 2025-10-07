@@ -15,292 +15,6 @@ export const cardTemplates = [
   // UNC STYLE - 1980s-1990s Authentic Replicas
   // ============================================
   {
-    id: 'topps1987',
-    name: '1987 Topps Wood',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'Iconic wood-grain border from 1987 Topps',
-    backgroundColor: '#8B7355',
-    borderColor: '#654321',
-    textColor: '#FFFFFF',
-    secondaryTextColor: '#FFE4B5',
-    accentColor: '#D2691E',
-    fontFamily: 'Arial Black, sans-serif',
-    texture: 'woodgrain',
-    vintage: true,
-    layers: [
-      {
-        type: 'texture',
-        texture: 'woodgrain',
-        width: 400,
-        height: 560,
-        x: 0,
-        y: 0
-      },
-      {
-        type: 'border',
-        width: 15,
-        color: '#654321',
-        x: 15,
-        y: 15,
-        innerWidth: 370,
-        innerHeight: 530
-      },
-      {
-        type: 'name-banner',
-        x: 30,
-        y: 490,
-        width: 340,
-        height: 40,
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
-        textColor: '#FFFFFF',
-        textStyle: 'bold'
-      }
-    ]
-  },
-  {
-    id: 'topps1985',
-    name: '1985 Topps Classic',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'White border with angled team banner',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E8E8E8',
-    textColor: '#2C3E50',
-    secondaryTextColor: '#34495E',
-    accentColor: '#3498DB',
-    secondaryAccent: '#E74C3C',
-    fontFamily: 'Arial, sans-serif',
-    vintage: true,
-    layout: 'angledBanner',
-    layers: [
-      {
-        type: 'border',
-        width: 18,
-        color: '#FFFFFF',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'border',
-        width: 2,
-        color: '#E8E8E8',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'team-banner',
-        x: 25,
-        y: 470,
-        width: 150,
-        height: 35,
-        backgroundColor: '#3498DB',
-        textColor: '#FFFFFF',
-        textStyle: 'bold',
-        rotation: -5
-      },
-      {
-        type: 'name-banner',
-        x: 25,
-        y: 505,
-        width: 350,
-        height: 30,
-        backgroundColor: '#E74C3C',
-        textColor: '#FFFFFF',
-        textStyle: 'bold'
-      }
-    ]
-  },
-  {
-    id: 'fleer1989',
-    name: '1989 Fleer',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'Gray border with white vertical stripes',
-    backgroundColor: '#808080',
-    borderColor: '#696969',
-    textColor: '#FFFFFF',
-    secondaryTextColor: '#F0E68C',
-    accentColor: '#FFD700',
-    fontFamily: 'Arial, sans-serif',
-    vintage: true,
-    pattern: 'verticalStripes',
-    layers: [
-      {
-        type: 'border',
-        width: 20,
-        color: '#808080',
-        x: 15,
-        y: 15,
-        innerWidth: 370,
-        innerHeight: 530
-      },
-      {
-        type: 'accent-strip',
-        width: 4,
-        color: '#FFFFFF',
-        x: 20,
-        y: 15,
-        height: 530
-      },
-      {
-        type: 'accent-strip',
-        width: 4,
-        color: '#FFFFFF',
-        x: 376,
-        y: 15,
-        height: 530
-      },
-      {
-        type: 'accent-strip',
-        width: 4,
-        color: '#FFD700',
-        x: 28,
-        y: 15,
-        height: 530
-      },
-      {
-        type: 'accent-strip',
-        width: 4,
-        color: '#FFD700',
-        x: 368,
-        y: 15,
-        height: 530
-      },
-      {
-        type: 'name-banner',
-        x: 40,
-        y: 495,
-        width: 320,
-        height: 35,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        textColor: '#F0E68C',
-        textStyle: 'bold'
-      }
-    ]
-  },
-  {
-    id: 'donruss1991blue',
-    name: '1991 Donruss Blue',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'Blue borders with striped pattern',
-    backgroundColor: '#1E3A8A',
-    borderColor: '#1E40AF',
-    textColor: '#FFFFFF',
-    secondaryTextColor: '#DBEAFE',
-    accentColor: '#DC2626',
-    fontFamily: 'Arial Black, sans-serif',
-    vintage: true,
-    pattern: 'stripes',
-    layers: [
-      {
-        type: 'border',
-        width: 25,
-        color: '#1E3A8A',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'border',
-        width: 10,
-        color: '#3B82F6',
-        x: 18,
-        y: 18,
-        innerWidth: 364,
-        innerHeight: 524
-      },
-      {
-        type: 'accent-strip',
-        width: 3,
-        color: '#DBEAFE',
-        x: 30,
-        y: 10,
-        height: 540
-      },
-      {
-        type: 'accent-strip',
-        width: 3,
-        color: '#DBEAFE',
-        x: 367,
-        y: 10,
-        height: 540
-      },
-      {
-        type: 'name-banner',
-        x: 35,
-        y: 495,
-        width: 330,
-        height: 40,
-        backgroundColor: '#DC2626',
-        textColor: '#FFFFFF',
-        textStyle: 'bold'
-      }
-    ]
-  },
-  {
-    id: 'donruss1991green',
-    name: '1991 Donruss Green',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'Green borders with striped pattern',
-    backgroundColor: '#166534',
-    borderColor: '#15803D',
-    textColor: '#FFFFFF',
-    secondaryTextColor: '#D1FAE5',
-    accentColor: '#DC2626',
-    fontFamily: 'Arial Black, sans-serif',
-    vintage: true,
-    pattern: 'stripes',
-    layers: [
-      {
-        type: 'border',
-        width: 25,
-        color: '#166534',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'border',
-        width: 10,
-        color: '#22C55E',
-        x: 18,
-        y: 18,
-        innerWidth: 364,
-        innerHeight: 524
-      },
-      {
-        type: 'accent-strip',
-        width: 3,
-        color: '#D1FAE5',
-        x: 30,
-        y: 10,
-        height: 540
-      },
-      {
-        type: 'accent-strip',
-        width: 3,
-        color: '#D1FAE5',
-        x: 367,
-        y: 10,
-        height: 540
-      },
-      {
-        type: 'name-banner',
-        x: 35,
-        y: 495,
-        width: 330,
-        height: 40,
-        backgroundColor: '#DC2626',
-        textColor: '#FFFFFF',
-        textStyle: 'bold'
-      }
-    ]
-  },
-  {
     id: 'donruss1985',
     name: '1985 Donruss Black',
     category: TEMPLATE_CATEGORIES.UNC_STYLE,
@@ -340,59 +54,6 @@ export const cardTemplates = [
         backgroundColor: '#000000',
         textColor: '#FFFFFF',
         textStyle: 'bold'
-      }
-    ]
-  },
-  {
-    id: 'bowman1990',
-    name: '1990 Bowman',
-    category: TEMPLATE_CATEGORIES.UNC_STYLE,
-    description: 'White border classic design',
-    backgroundColor: '#FAFAFA',
-    borderColor: '#E5E7EB',
-    textColor: '#1F2937',
-    secondaryTextColor: '#6B7280',
-    accentColor: '#3B82F6',
-    fontFamily: 'Times New Roman, serif',
-    vintage: true,
-    layers: [
-      {
-        type: 'border',
-        width: 22,
-        color: '#FAFAFA',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'border',
-        width: 1,
-        color: '#E5E7EB',
-        x: 10,
-        y: 10,
-        innerWidth: 380,
-        innerHeight: 540
-      },
-      {
-        type: 'team-banner',
-        x: 25,
-        y: 40,
-        width: 120,
-        height: 30,
-        backgroundColor: '#3B82F6',
-        textColor: '#FFFFFF',
-        textStyle: 'italic'
-      },
-      {
-        type: 'name-banner',
-        x: 25,
-        y: 500,
-        width: 350,
-        height: 32,
-        backgroundColor: '#1F2937',
-        textColor: '#FFFFFF',
-        textStyle: 'italic'
       }
     ]
   },
@@ -480,7 +141,25 @@ export const cardTemplates = [
     secondaryTextColor: '#5D4037',
     accentColor: '#A0826D',
     fontFamily: 'Georgia, serif',
-    texture: 'sand'
+    layers: [
+      {
+        type: 'texture',
+        textureFile: '/textures/sandstone.svg',
+        width: 400,
+        height: 560,
+        x: 0,
+        y: 0
+      },
+      {
+        type: 'border',
+        width: 15,
+        color: '#8B7355',
+        x: 15,
+        y: 15,
+        innerWidth: 370,
+        innerHeight: 530
+      }
+    ]
   },
   {
     id: 'canvas',
@@ -571,7 +250,25 @@ export const cardTemplates = [
     secondaryTextColor: '#CCCCCC',
     accentColor: '#FF6347',
     fontFamily: 'Arial, sans-serif',
-    texture: 'carbon'
+    layers: [
+      {
+        type: 'texture',
+        textureFile: '/textures/carbon-fiber.svg',
+        width: 400,
+        height: 560,
+        x: 0,
+        y: 0
+      },
+      {
+        type: 'border',
+        width: 15,
+        color: '#FF4500',
+        x: 15,
+        y: 15,
+        innerWidth: 370,
+        innerHeight: 530
+      }
+    ]
   },
   {
     id: 'brushedmetal',

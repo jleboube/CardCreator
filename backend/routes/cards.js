@@ -68,8 +68,7 @@ router.post('/',
     body('imageData').notEmpty().withMessage('Image data is required'),
     body('template').optional().isIn([
       // UNC Style
-      'topps1987', 'topps1985', 'fleer1989', 'donruss1991blue', 'donruss1991green',
-      'donruss1985', 'bowman1990', 'topps1990',
+      'donruss1985', 'topps1990',
       // Textured
       'sandstone', 'canvas', 'concrete', 'woodgrain', 'leather', 'denim',
       'marble', 'carbon', 'brushedmetal',
@@ -142,8 +141,7 @@ router.put('/:id',
     body('imageData').optional().notEmpty(),
     body('template').optional().isIn([
       // UNC Style
-      'topps1987', 'topps1985', 'fleer1989', 'donruss1991blue', 'donruss1991green',
-      'donruss1985', 'bowman1990', 'topps1990',
+      'donruss1985', 'topps1990',
       // Textured
       'sandstone', 'canvas', 'concrete', 'woodgrain', 'leather', 'denim',
       'marble', 'carbon', 'brushedmetal',
