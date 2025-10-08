@@ -25,17 +25,6 @@ const Landing = () => {
       easing: 'spring(1, 80, 10, 0)'
     });
 
-    // Animate baseball emoji with rotation
-    anime({
-      targets: '.baseball-icon',
-      opacity: [0, 1],
-      rotate: [0, 360],
-      scale: [0, 1],
-      duration: 1000,
-      easing: 'easeOutElastic(1, .6)',
-      delay: 200
-    });
-
     // Animate subtitle
     anime({
       targets: '.hero-subtitle',
@@ -68,17 +57,6 @@ const Landing = () => {
       easing: 'easeOutQuad'
     });
 
-    // Floating animation for baseball icon
-    anime({
-      targets: '.baseball-icon',
-      translateY: [-10, 10],
-      duration: 2000,
-      direction: 'alternate',
-      loop: true,
-      easing: 'easeInOutSine',
-      delay: 1200
-    });
-
     // Continuous subtle animation for CTA section
     anime({
       targets: '.cta',
@@ -102,10 +80,14 @@ const Landing = () => {
   };
 
   return (
-    <div className="landing">
+    <div
+      className="landing"
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/baseball-diamond_bg.svg)`
+      }}
+    >
       <section className="hero">
         <div className="hero-content">
-          <div className="baseball-icon">⚾</div>
           <h1 className="hero-title">Baseball Card Creator</h1>
           <p className="hero-subtitle">
             Create stunning, professional baseball cards with your photos
@@ -129,22 +111,44 @@ const Landing = () => {
         <h2>Features</h2>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">🎨</div>
-            <h3>12 Unique Templates</h3>
-            <p>Choose from Classic, Modern, Vintage, Neon, Holographic, Galaxy, Rainbow, and more!</p>
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <h3>Unique Templates</h3>
+            <p>Choose from Classic, Modern, Vintage, Textured, and authentic UNC Style templates!</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">📸</div>
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
             <h3>Custom Photos</h3>
             <p>Upload your own player photos and drag to position perfectly on any template</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">📊</div>
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="12" y1="20" x2="12" y2="10"/>
+                <line x1="18" y1="20" x2="18" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="16"/>
+              </svg>
+            </div>
             <h3>Player Stats</h3>
             <p>Add detailed statistics to make your cards authentic</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">💾</div>
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                <path d="M17 21v-8H7v8M7 3v5h8"/>
+              </svg>
+            </div>
             <h3>Save & Download</h3>
             <p>Save your creations and download high-quality images</p>
           </div>
@@ -158,7 +162,7 @@ const Landing = () => {
 
       <footer className="landing-footer">
         <div className="footer-content">
-          <p>&copy; 2025 Baseball Card Creator. All rights reserved.</p>
+          <p>&copy; 2025 Baseball Card Creator - By Joe LeBoube. All rights reserved.</p>
           <div className="footer-links">
             <Link to="/privacy" className="footer-link">Privacy Policy</Link>
             <span className="footer-divider">|</span>
