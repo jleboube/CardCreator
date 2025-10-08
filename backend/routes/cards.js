@@ -83,7 +83,7 @@ router.post('/',
       // Nature & Elemental
       'galaxy', 'nebula', 'sunset', 'ocean', 'fire', 'ice',
       // Specialty
-      'camo'
+      'camo', 'camogray'
     ]),
     body('title').optional().isString().trim().isLength({ max: 100 })
   ],
@@ -156,7 +156,7 @@ router.put('/:id',
       // Nature & Elemental
       'galaxy', 'nebula', 'sunset', 'ocean', 'fire', 'ice',
       // Specialty
-      'camo'
+      'camo', 'camogray'
     ]),
     body('title').optional().isString().trim().isLength({ max: 100 })
   ],

@@ -672,7 +672,57 @@ export const cardTemplates = [
     textColor: '#F0E68C',
     secondaryTextColor: '#BDB76B',
     accentColor: '#6B8E23',
-    fontFamily: 'Impact, sans-serif'
+    fontFamily: 'Impact, sans-serif',
+    layers: [
+      {
+        type: 'texture',
+        textureFile: '/textures/camo-green.svg',
+        width: 400,
+        height: 560,
+        x: 0,
+        y: 0
+      },
+      {
+        type: 'border',
+        width: 15,
+        color: '#3D3D29',
+        x: 15,
+        y: 15,
+        innerWidth: 370,
+        innerHeight: 530
+      }
+    ]
+  },
+  {
+    id: 'camogray',
+    name: 'Gray Camouflage',
+    category: TEMPLATE_CATEGORIES.SPECIALTY,
+    description: 'Urban gray camo pattern',
+    backgroundColor: '#2C2C2C',
+    borderColor: '#1A1A1A',
+    textColor: '#E0E0E0',
+    secondaryTextColor: '#B0B0B0',
+    accentColor: '#505050',
+    fontFamily: 'Impact, sans-serif',
+    layers: [
+      {
+        type: 'texture',
+        textureFile: '/textures/camo-black.svg',
+        width: 400,
+        height: 560,
+        x: 0,
+        y: 0
+      },
+      {
+        type: 'border',
+        width: 15,
+        color: '#1A1A1A',
+        x: 15,
+        y: 15,
+        innerWidth: 370,
+        innerHeight: 530
+      }
+    ]
   }
 ];
 
