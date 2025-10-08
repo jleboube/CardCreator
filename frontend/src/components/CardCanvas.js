@@ -1982,7 +1982,10 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
 
   const renderCardBack = () => {
     const stats = cardData.stats || {};
-    const fontSize = 12;
+    const fontSize = 11;
+    const headerFontSize = 18;
+    const sectionHeaderFontSize = 9;
+    const footerFontSize = 8;
     const startY = 80;
 
     return (
@@ -2011,66 +2014,66 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
           y={28}
           width={CARD_WIDTH - 40}
           text={cardData.playerName.toUpperCase()}
-          fontSize={20}
-          fontFamily="Arial, sans-serif"
+          fontSize={headerFontSize}
+          fontFamily={template.fontFamily}
           fill="#FFFFFF"
           align="center"
           fontStyle="bold"
         />
 
         {/* Player Info Section */}
-        <Text x={30} y={startY} text="PLAYER INFORMATION" fontSize={10} fontFamily="Arial" fill={template.textColor || '#000'} fontStyle="bold" />
+        <Text x={30} y={startY} text="PLAYER INFORMATION" fontSize={sectionHeaderFontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} fontStyle="bold" />
         <Line points={[30, startY + 12, CARD_WIDTH - 30, startY + 12]} stroke={template.accentColor || '#2E7D32'} strokeWidth={1} />
 
-        <Text x={30} y={startY + 20} text={`Team: ${cardData.teamName}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={30} y={startY + 36} text={`Position: ${cardData.position || 'N/A'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={30} y={startY + 52} text={`Year: ${cardData.year}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        {cardData.hometown && <Text x={30} y={startY + 68} text={`Hometown: ${cardData.hometown}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />}
-        {cardData.height && <Text x={30} y={startY + 84} text={`Height: ${cardData.height}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />}
-        {cardData.weight && <Text x={30} y={startY + 100} text={`Weight: ${cardData.weight}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />}
-        {cardData.batsThrows && <Text x={30} y={startY + 116} text={`Bats/Throws: ${cardData.batsThrows}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />}
+        <Text x={30} y={startY + 20} text={`Team: ${cardData.teamName}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={30} y={startY + 36} text={`Position: ${cardData.position || 'N/A'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={30} y={startY + 52} text={`Year: ${cardData.year}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        {cardData.hometown && <Text x={30} y={startY + 68} text={`Hometown: ${cardData.hometown}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />}
+        {cardData.height && <Text x={30} y={startY + 84} text={`Height: ${cardData.height}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />}
+        {cardData.weight && <Text x={30} y={startY + 100} text={`Weight: ${cardData.weight}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />}
+        {cardData.batsThrows && <Text x={30} y={startY + 116} text={`Bats/Throws: ${cardData.batsThrows}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />}
 
         {/* Batting Stats Section */}
-        <Text x={30} y={startY + 140} text="BATTING STATISTICS" fontSize={10} fontFamily="Arial" fill={template.textColor || '#000'} fontStyle="bold" />
+        <Text x={30} y={startY + 140} text="BATTING STATISTICS" fontSize={sectionHeaderFontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} fontStyle="bold" />
         <Line points={[30, startY + 152, CARD_WIDTH - 30, startY + 152]} stroke={template.accentColor || '#2E7D32'} strokeWidth={1} />
 
         <Rect x={25} y={startY + 160} width={CARD_WIDTH - 50} height={140} fill="rgba(0,0,0,0.03)" cornerRadius={5} />
 
-        <Text x={35} y={startY + 170} text={`AVG: ${stats.avg || '.000'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={135} y={startY + 170} text={`G: ${stats.games || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={220} y={startY + 170} text={`AB: ${stats.atBats || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+        <Text x={35} y={startY + 170} text={`AVG: ${stats.avg || '.000'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={135} y={startY + 170} text={`G: ${stats.games || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={220} y={startY + 170} text={`AB: ${stats.atBats || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-        <Text x={35} y={startY + 190} text={`H: ${stats.hits || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={135} y={startY + 190} text={`2B: ${stats.doubles || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={220} y={startY + 190} text={`3B: ${stats.triples || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+        <Text x={35} y={startY + 190} text={`H: ${stats.hits || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={135} y={startY + 190} text={`2B: ${stats.doubles || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={220} y={startY + 190} text={`3B: ${stats.triples || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-        <Text x={35} y={startY + 210} text={`HR: ${stats.hr || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={135} y={startY + 210} text={`RBI: ${stats.rbi || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={220} y={startY + 210} text={`SB: ${stats.sb || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+        <Text x={35} y={startY + 210} text={`HR: ${stats.hr || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={135} y={startY + 210} text={`RBI: ${stats.rbi || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={220} y={startY + 210} text={`SB: ${stats.sb || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-        <Text x={35} y={startY + 230} text={`BB: ${stats.walks || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={135} y={startY + 230} text={`SO: ${stats.strikeouts || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+        <Text x={35} y={startY + 230} text={`BB: ${stats.walks || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={135} y={startY + 230} text={`SO: ${stats.strikeouts || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-        <Text x={35} y={startY + 250} text={`OBP: ${stats.obp || '.000'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-        <Text x={135} y={startY + 250} text={`SLG: ${stats.slg || '.000'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+        <Text x={35} y={startY + 250} text={`OBP: ${stats.obp || '.000'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+        <Text x={135} y={startY + 250} text={`SLG: ${stats.slg || '.000'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
         {/* Pitching Stats Section (if applicable) */}
         {(stats.era || stats.wins || stats.ip) && (
           <>
-            <Text x={30} y={startY + 320} text="PITCHING STATISTICS" fontSize={10} fontFamily="Arial" fill={template.textColor || '#000'} fontStyle="bold" />
+            <Text x={30} y={startY + 320} text="PITCHING STATISTICS" fontSize={sectionHeaderFontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} fontStyle="bold" />
             <Line points={[30, startY + 332, CARD_WIDTH - 30, startY + 332]} stroke={template.accentColor || '#2E7D32'} strokeWidth={1} />
 
             <Rect x={25} y={startY + 340} width={CARD_WIDTH - 50} height={100} fill="rgba(0,0,0,0.03)" cornerRadius={5} />
 
-            <Text x={35} y={startY + 350} text={`ERA: ${stats.era || 'N/A'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-            <Text x={135} y={startY + 350} text={`W: ${stats.wins || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-            <Text x={220} y={startY + 350} text={`L: ${stats.losses || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+            <Text x={35} y={startY + 350} text={`ERA: ${stats.era || 'N/A'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+            <Text x={135} y={startY + 350} text={`W: ${stats.wins || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+            <Text x={220} y={startY + 350} text={`L: ${stats.losses || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-            <Text x={35} y={startY + 370} text={`SV: ${stats.saves || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-            <Text x={135} y={startY + 370} text={`IP: ${stats.ip || '0.0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+            <Text x={35} y={startY + 370} text={`SV: ${stats.saves || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+            <Text x={135} y={startY + 370} text={`IP: ${stats.ip || '0.0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
 
-            <Text x={35} y={startY + 390} text={`K: ${stats.strikeoutsP || '0'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
-            <Text x={135} y={startY + 390} text={`WHIP: ${stats.whip || 'N/A'}`} fontSize={fontSize} fontFamily="Arial" fill={template.textColor || '#000'} />
+            <Text x={35} y={startY + 390} text={`K: ${stats.strikeoutsP || '0'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
+            <Text x={135} y={startY + 390} text={`WHIP: ${stats.whip || 'N/A'}`} fontSize={fontSize} fontFamily={template.fontFamily} fill={template.textColor || '#000'} />
           </>
         )}
 
@@ -2087,8 +2090,8 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
           y={CARD_HEIGHT - 30}
           width={CARD_WIDTH - 40}
           text={`© ${cardData.year} Baseball Card Creator`}
-          fontSize={9}
-          fontFamily="Arial"
+          fontSize={footerFontSize}
+          fontFamily={template.fontFamily}
           fill="#FFFFFF"
           align="center"
         />

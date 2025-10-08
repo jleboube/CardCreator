@@ -90,7 +90,7 @@ const Landing = () => {
         <div className="hero-content">
           <h1 className="hero-title">Baseball Card Creator</h1>
           <p className="hero-subtitle">
-            Create stunning, professional baseball cards with your photos
+            Create custom, professional baseball cards with your photos
           </p>
 
           <div className="login-container">
