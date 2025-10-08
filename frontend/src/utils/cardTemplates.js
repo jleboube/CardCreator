@@ -690,6 +690,26 @@ export const cardTemplates = [
         y: 15,
         innerWidth: 370,
         innerHeight: 530
+      },
+      {
+        type: 'team-banner',
+        x: 30,
+        y: 40,
+        width: 140,
+        height: 30,
+        backgroundColor: 'rgba(61, 61, 41, 0.9)',
+        textColor: '#F0E68C',
+        textStyle: 'bold'
+      },
+      {
+        type: 'name-banner',
+        x: 30,
+        y: 485,
+        width: 340,
+        height: 40,
+        backgroundColor: 'rgba(61, 61, 41, 0.9)',
+        textColor: '#F0E68C',
+        textStyle: 'bold'
       }
     ]
   },
@@ -721,6 +741,26 @@ export const cardTemplates = [
         y: 15,
         innerWidth: 370,
         innerHeight: 530
+      },
+      {
+        type: 'team-banner',
+        x: 30,
+        y: 40,
+        width: 140,
+        height: 30,
+        backgroundColor: 'rgba(26, 26, 26, 0.9)',
+        textColor: '#E0E0E0',
+        textStyle: 'bold'
+      },
+      {
+        type: 'name-banner',
+        x: 30,
+        y: 485,
+        width: 340,
+        height: 40,
+        backgroundColor: 'rgba(26, 26, 26, 0.9)',
+        textColor: '#E0E0E0',
+        textStyle: 'bold'
       }
     ]
   }

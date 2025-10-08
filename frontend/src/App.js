@@ -31,7 +31,12 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="App">
+        <div
+          className="App"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/images/baseball-diamond_bg.svg)`
+          }}
+        >
           <Navbar />
           <Routes>
             <Route path="/" element={<Landing />} />

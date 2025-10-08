@@ -257,7 +257,7 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
               );
 
             case 'name-banner':
-              // Render player name banner
+              // Render player name banner with position
               return (
                 <Group key={`name-banner-${index}`}>
                   <Rect
@@ -268,6 +268,7 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
                     fill={layer.backgroundColor}
                     cornerRadius={2}
                   />
+                  {/* Player Name - Left Aligned */}
                   <Text
                     x={layer.x + 5}
                     y={layer.y + (layer.height / 2) - 10}
@@ -278,6 +279,19 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
                     fill={layer.textColor || '#000000'}
                     align="left"
                   />
+                  {/* Position - Right Aligned */}
+                  {cardData.position && (
+                    <Text
+                      x={layer.x + layer.width - 5}
+                      y={layer.y + (layer.height / 2) - 10}
+                      text={cardData.position}
+                      fontSize={18}
+                      fontFamily={template.fontFamily}
+                      fontStyle={layer.textStyle || 'bold'}
+                      fill={layer.textColor || '#000000'}
+                      align="right"
+                    />
+                  )}
                 </Group>
               );
 
@@ -356,18 +370,31 @@ const CardCanvas = ({ cardData, template, stageRef, showBack = false, featuredSt
           />
         )}
 
-        {/* Player Name */}
+        {/* Player Name - Left Aligned */}
         <Text
-          x={20}
+          x={30}
           y={390}
-          width={CARD_WIDTH - 40}
           text={cardData.playerName}
-          fontSize={32}
+          fontSize={28}
           fontFamily={template.fontFamily}
           fill={template.textColor}
-          align="center"
+          align="left"
           fontStyle="bold"
         />
+
+        {/* Position - Right Aligned */}
+        {cardData.position && (
+          <Text
+            x={CARD_WIDTH - 30}
+            y={390}
+            text={cardData.position}
+            fontSize={28}
+            fontFamily={template.fontFamily}
+            fill={template.textColor}
+            align="right"
+            fontStyle="bold"
+          />
+        )}
 
         {/* Team Name */}
         <Text

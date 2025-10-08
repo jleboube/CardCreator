@@ -2,4 +2,26 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.App > * {
+  position: relative;
+  z-index: 1;
 }
